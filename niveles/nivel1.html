@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cyber Memory — Nivel 1</title>
+
+  <!-- CSS general del proyecto -->
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+  <div class="app">
+    <!-- ZONA DE TABLERO -->
+    <main class="board-area">
+
+      <!-- Cabecera de columnas -->
+      <header class="columns-head">
+        <h2>Concepto</h2>
+        <div class="divider"></div>
+        <h2>Definición</h2>
+      </header>
+
+      <!-- Columnas con las cartas -->
+      <section class="columns">
+        <div id="grid-habito" class="grid"></div>
+        <div class="divider divider--full"></div>
+        <div id="grid-def" class="grid"></div>
+      </section>
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h1 class="logo-sidebar">CYBER<br>MEMORY</h1>
+
+      <p class="level">Nivel <strong>1</strong></p>
+
+
+      <div class="progress">
+        <div class="bar" id="bar"></div>
+      </div>
+      <div class="score">Puntuación <span id="score">00</span>/480</div>
+      <br />
+     
+      <div id="definicion-habitos"> 
+        <p class="subtitle">Hábitos Digitales</p>
+        <p> ¡Saludos! en este nivel descubrirás comportamientos comunes del uso diario del móvil: algunos pasan desapercibidos,
+          pero influyen en nuestra atención y en cómo nos comunicamos.
+          Tu misión: aprender a detectarlos.</p>
+      </div>
+
+      <div id="botones">
+        <button class="btn" id="btn-restart">Volver a empezar</button>
+        <button class="btn" id="btn-next">Avanzar nivel</button>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- Script específico de este nivel -->
+  <script src="nivel1.js"></script>
+
+  <!-- Script general del juego -->
+  <script src="../game.js"></script>
+
+</body>
+
+</html>

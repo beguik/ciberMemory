@@ -1,0 +1,153 @@
+/* =========================================================
+   FUENTES
+   ========================================================= */
+@font-face {
+  font-family: "Jersey 10";
+  src: url("./fonts/Jersey10-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aldrich";
+  src: url("./fonts/Aldrich-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* =========================================================
+   VARIABLES GLOBALES
+   ========================================================= */
+:root {
+  /* Colores base */
+  --bg-left: #BA303A;
+  --bg-right: #000000;
+  --title-fill: #FFFFFF;
+  --title-stroke: #B757B1;
+  --text: #E0E5EA;
+  --muted: #C6CCD6;
+
+  /* Paneles / acentos */
+  --panel: rgba(0, 0, 0, .30);
+  --accent: #B757B1;
+
+  /* Botones */
+  --btn-bg: #DADADA;
+  --btn-text: #1A1A1A;
+  --btn-radius: 14px;
+
+  /* Layout */
+  --content-max: 860px;
+
+  /* Cartas */
+  --card-w: 140px;      /* ancho base de carta */
+  --card-gap: 14px;     /* separación entre cartas */
+  --divider-w: 2px;     /* grosor del divisor vertical */
+}
+
+/* =========================================================
+   ESTILOS BASE
+   ========================================================= */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(90deg, var(--bg-left) 0%, var(--bg-right) 100%);
+  color: var(--text);
+  font-family: "Aldrich", system-ui, sans-serif;
+}
+
+/* Botón genérico */
+.btn {
+  appearance: none;
+  border: 0;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  font-family: "Aldrich", system-ui, sans-serif;
+  font-size: clamp(14px, 1.8vw, 18px);
+  padding: 14px 26px;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: transform .15s ease, filter .15s ease;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, .25), 0 10px 30px rgba(0, 0, 0, .25);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   PORTADA (pantalla principal)
+   ========================================================= */
+.principal {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.contenido {
+  width: min(100%, var(--content-max));
+  text-align: center;
+}
+
+/* Título portada */
+.logo {
+  font-family: "Jersey 10", system-ui, sans-serif;
+  font-size: 10rem;
+  line-height: 0.7;
+  margin: 0 0 16px;
+  color: var(--title-fill);
+  -webkit-text-stroke: 0.1px var(--title-stroke);
+}
+
+/* Texto portada */
+.lead {
+  font-size: clamp(16px, 2.1vw, 22px);
+  line-height: 1.4;
+  margin: 0 auto 15px;
+  color: var(--text);
+}
+
+.lead p {
+  margin: 0 0 18px;
+}
+
+/* =========================================================
+   NIVEL 1 (layout general tablero + sidebar)
+   ========================================================= */
+
+/* Contenedor principal del nivel */
+.app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
+  gap: 24px;
+  padding: 24px;
+  max-width: 1200px;       /* ancho máximo del juego */
+  margin: 0 auto;          /* centrado horizontal */
+  align-content: center;   /* centra verticalmente tablero + sidebar */
+}
+
+/* Panel del tablero (zona roja con cartas) */
+.board-area {
+  background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .02));
+  border-radius: 14px;
+  padding: 18px 22px;
+  position: relative;
+  backdrop-filter: blur(2px);
+  outline: 1px solid rgba(255, 255, 255, .08);
+}
+
+
