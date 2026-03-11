@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cyber Memory — Nivel 2</title>
+
+  <!-- CSS general del proyecto -->
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+  <div class="app">
+    <!-- ZONA DE TABLERO -->
+    <main class="board-area">
+
+      <!-- Cabecera de columnas -->
+      <header class="columns-head">
+        <h2>Definición</h2>
+        <div class="divider"></div>
+        <h2>Concepto</h2>
+      </header>
+
+      <!-- Columnas con las cartas -->
+      <section class="columns">
+        <div id="grid-def" class="grid"></div>
+        <div class="divider divider--full"></div>
+        <div id="grid-habito" class="grid"></div>
+      </section>
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h1 class="logo-sidebar">CYBER<br>MEMORY</h1>
+
+      <p class="level">Nivel <strong>2</strong></p>
+
+
+      <div class="progress">
+        <div class="bar" id="bar"></div>
+      </div>
+      <div class="score">Puntuación <span id="score">00</span>/480</div>
+      <br />
+
+      <div id="definicion-habitos">
+        <p class="subtitle">Cultura Digital y Modas en Línea</p>
+        <p> ¡Bienvenido al siguiente desafío! En este nivel explorarás algunos términos y expresiones que forman parte de la cultura digital actual. 
+          Muchas de estas palabras nacen en redes sociales, videojuegos o comunidades online y se utilizan para describir tendencias, 
+          bromas o formas de relacionarnos en internet. Tu misión será reconocer estos conceptos y entender cómo forman parte del lenguaje digital que usamos cada día.</p>
+      </div>
+
+      <div id="botones">
+        <button class="btn empezar" id="btn-restart">Volver a empezar</button>
+        <button class="btn" id="btn-next">Avanzar nivel</button>
+      </div>
+
+    </aside>
+  </div>
+  <div class="controls-bottom">
+   <button class="btn empezar" id="btn-restart-movil">Volver a empezar</button>
+        <button class="btn" id="btn-next-movil">Avanzar nivel</button>
+  </div>
+  <div id="level-modal" class="level-modal hidden">
+    <div class="level-modal-content">
+      <h2 id="level-modal-title">¡Nivel completado!</h2>
+      <p id="level-modal-text"></p>
+      <button id="level-modal-btn">Siguiente nivel</button>
+    </div>
+  </div>
+  <!-- Script específico de este nivel -->
+  <script src="nivel2.js"></script>
+
+  <!-- Script general del juego -->
+  <script src="../game.js"></script>
+
+</body>
+
+</html>

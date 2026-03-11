@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cyber Memory — Nivel 3</title>
+
+  <!-- CSS general del proyecto -->
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+  <div class="app">
+    <!-- ZONA DE TABLERO -->
+    <main class="board-area">
+
+      <!-- Cabecera de columnas -->
+      <header class="columns-head">
+        <h2>Definición</h2>
+        <div class="divider"></div>
+        <h2>Concepto</h2>
+      </header>
+
+      <!-- Columnas con las cartas -->
+      <section class="columns">
+        <div id="grid-def" class="grid"></div>
+        <div class="divider divider--full"></div>
+        <div id="grid-habito" class="grid"></div>
+      </section>
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h1 class="logo-sidebar">CYBER<br>MEMORY</h1>
+
+      <p class="level">Nivel <strong>3</strong></p>
+
+
+      <div class="progress">
+        <div class="bar" id="bar"></div>
+      </div>
+      <div class="score">Puntuación <span id="score">00</span>/480</div>
+      <br />
+
+      <div id="definicion-habitos">
+        <p class="subtitle">Incivismo en la Red</p>
+        <p>En internet no solo compartimos información y nos divertimos: 
+          también interactuamos con otras personas. En este nivel descubrirás algunas conductas molestas o poco respetuosas 
+          que pueden aparecer en redes sociales, chats o comunidades online. Aunque a veces parecen bromas o comportamientos sin importancia, 
+          pueden afectar a la convivencia digital. Tu misión será reconocer estas actitudes y aprender a identificarlas.</p>
+      </div>
+
+      <div id="botones">
+        <button class="btn empezar" id="btn-restart">Volver a empezar</button>
+        <button class="btn" id="btn-next">Avanzar nivel</button>
+      </div>
+
+    </aside>
+  </div>
+  <div class="controls-bottom">
+   <button class="btn empezar" id="btn-restart-movil">Volver a empezar</button>
+        <button class="btn" id="btn-next-movil">Avanzar nivel</button>
+  </div>
+  <div id="level-modal" class="level-modal hidden">
+    <div class="level-modal-content">
+      <h2 id="level-modal-title">¡Nivel completado!</h2>
+      <p id="level-modal-text"></p>
+      <button id="level-modal-btn">Siguiente nivel</button>
+    </div>
+  </div>
+  <!-- Script específico de este nivel -->
+  <script src="nivel3.js"></script>
+
+  <!-- Script general del juego -->
+  <script src="../game.js"></script>
+
+</body>
+
+</html>

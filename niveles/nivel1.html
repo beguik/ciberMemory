@@ -17,16 +17,16 @@
 
       <!-- Cabecera de columnas -->
       <header class="columns-head">
-        <h2>Concepto</h2>
-        <div class="divider"></div>
         <h2>Definición</h2>
+        <div class="divider"></div>
+        <h2>Concepto</h2>
       </header>
 
       <!-- Columnas con las cartas -->
       <section class="columns">
-        <div id="grid-habito" class="grid"></div>
-        <div class="divider divider--full"></div>
         <div id="grid-def" class="grid"></div>
+        <div class="divider divider--full"></div>
+        <div id="grid-habito" class="grid"></div>
       </section>
     </main>
 
@@ -42,20 +42,32 @@
       </div>
       <div class="score">Puntuación <span id="score">00</span>/480</div>
       <br />
-     
-      <div id="definicion-habitos"> 
+
+      <div id="definicion-habitos">
         <p class="subtitle">Hábitos Digitales</p>
-        <p> ¡Saludos! en este nivel descubrirás comportamientos comunes del uso diario del móvil: algunos pasan desapercibidos,
-          pero influyen en nuestra atención y en cómo nos comunicamos.
-          Tu misión: aprender a detectarlos.</p>
+        <p>¡Saludos! En este nivel descubrirás comportamientos comunes del uso diario del móvil y las redes. 
+          Algunos pasan desapercibidos, pero influyen en nuestra atención, en cómo nos comunicamos 
+          y en el tiempo que dedicamos a la tecnología. 
+          Tu misión será identificar estos hábitos digitales y reconocer cómo afectan a nuestra vida cotidiana.</p>
       </div>
 
       <div id="botones">
-        <button class="btn" id="btn-restart">Volver a empezar</button>
+        <button class="btn empezar" id="btn-restart">Volver a empezar</button>
         <button class="btn" id="btn-next">Avanzar nivel</button>
       </div>
 
     </aside>
+  </div>
+  <div class="controls-bottom">
+    <button class="btn empezar" id="btn-restart-movil">Volver a empezar</button>
+    <button class="btn" id="btn-next-movil">Avanzar nivel</button>
+  </div>
+  <div id="level-modal" class="level-modal hidden">
+    <div class="level-modal-content">
+      <h2 id="level-modal-title">¡Nivel completado!</h2>
+      <p id="level-modal-text"></p>
+      <button id="level-modal-btn">Siguiente nivel</button>
+    </div>
   </div>
 
   <!-- Script específico de este nivel -->

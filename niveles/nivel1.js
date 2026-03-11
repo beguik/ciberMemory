@@ -5,7 +5,7 @@ const CARD_BASE_NAMES = [
   "Fail",
   "Phubbing",
   "Phonbie",
-  "Over-Sharing",
+  "Oversharing",
   "Nomofobia"
 ];
 
@@ -16,13 +16,13 @@ const IMG_PATH = "../img/nivel1/";
 // izquierda → cxxxxx.jpg
 // derecha   → dxxxxx.jpg
 const HABITO_IMAGES = CARD_BASE_NAMES.map(name => IMG_PATH + "c" + name + ".png");
-const DEF_IMAGES    = CARD_BASE_NAMES.map(name => IMG_PATH + "d" + name + ".png");
+const DEF_IMAGES = CARD_BASE_NAMES.map(name => IMG_PATH + "d" + name + ".png");
 
 document.addEventListener("DOMContentLoaded", () => {
   const btnNext = document.getElementById("btn-next");
   if (btnNext) {
     btnNext.addEventListener("click", () => {
-      window.location.href = "nivel2.html";
+      goToNextLevel();
     });
   }
 });

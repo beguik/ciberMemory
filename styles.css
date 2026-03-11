@@ -32,9 +32,11 @@
   --accent: #B757B1;
 
   /* Botones */
-  --btn-bg: #DADADA;
-  --btn-text: #1A1A1A;
-  --btn-radius: 14px;
+--btn-bg: linear-gradient(180deg, #3b002b, #6b0d4f);
+--btn-text: #fff4ff;
+--btn-radius: 18px;
+--btn-border: #ff6bd6;
+--btn-glow: #ff4fd8;
 
   /* Layout */
   --content-max: 860px;
@@ -66,24 +68,39 @@ body {
 /* Botón genérico */
 .btn {
   appearance: none;
-  border: 0;
+  margin: 5px;
+ border: 2px solid #ff6bd6;
+
   background: var(--btn-bg);
   color: var(--btn-text);
+
   font-family: "Aldrich", system-ui, sans-serif;
   font-size: clamp(14px, 1.8vw, 18px);
+
   padding: 14px 26px;
-  border-radius: 18px;
+  border-radius: var(--btn-radius);
+
   cursor: pointer;
-  transition: transform .15s ease, filter .15s ease;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, .25), 0 10px 30px rgba(0, 0, 0, .25);
+
+  transition: transform .15s ease, filter .15s ease, box-shadow .2s ease;
+
+box-shadow:
+  0 0 10px #ff6bd6,
+  0 0 24px #ff4fd8,
+  0 0 40px rgba(201,77,255,0.6);
 }
 
 .btn:hover {
-  transform: translateY(-1px);
-}
+  transform: translateY(-2px) scale(1.04);
 
+  box-shadow:
+    0 0 10px var(--btn-glow),
+    0 0 24px var(--btn-glow),
+    0 0 40px rgba(255,79,216,0.6),
+    0 10px 30px rgba(0,0,0,.25);
+}
 .btn:active {
-  transform: translateY(0);
+  transform: scale(0.96);
 }
 
 .btn:disabled {
@@ -111,8 +128,34 @@ body {
   font-size: 10rem;
   line-height: 0.7;
   margin: 0 0 16px;
+
   color: var(--title-fill);
-  -webkit-text-stroke: 0.1px var(--title-stroke);
+  -webkit-text-stroke: 1px var(--title-stroke);
+
+ text-shadow:
+  0 0 6px #ff7ae6,
+  0 0 14px #ff4fd8,
+  0 0 28px #c94dff,
+  0 0 50px rgba(255,79,216,0.8);
+}
+.logo {
+  animation: neonGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes neonGlow {
+  from {
+    text-shadow:
+      0 0 4px #ff7ae6,
+      0 0 10px #ff4fd8,
+      0 0 20px #c94dff;
+  }
+  to {
+    text-shadow:
+      0 0 6px #ff7ae6,
+      0 0 16px #ff4fd8,
+      0 0 32px #c94dff,
+      0 0 60px rgba(255,79,216,0.9);
+  }
 }
 
 /* Texto portada */
@@ -208,12 +251,21 @@ body {
   justify-content: center;
   gap: var(--card-gap);
 }
-#botones{
+
+#botones {
   text-align: center;
 }
-#definicion-habitos{
-  font-size:x-large;
-  text-align:justify;
+
+.controls-bottom {
+  width: 100%;
+  justify-content: center;
+  display: none;
+
+}
+
+#definicion-habitos {
+  font-size: x-large;
+  text-align: justify;
 }
 
 @media (max-width: 900px) {
@@ -326,9 +378,12 @@ body {
   text-align: center;
   color: #fff;
   -webkit-text-stroke: 0.8px var(--title-stroke);
-  text-shadow:
-    0 0 2px var(--title-fill),
-    0 0 4px var(--title-fill);
+text-shadow:
+  0 0 3px var(--title-fill),
+  0 0 6px var(--title-fill),
+  0 0 12px #ff6bd6,
+  0 0 22px #ff4fd8,
+  0 0 40px rgba(255,79,216,0.8);
   filter: none;
 
   line-height: .82;
@@ -369,6 +424,62 @@ body {
 }
 
 /* =========================================
+          MODAL
+   ========================================= */
+
+.level-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  
+}
+
+.level-modal.hidden {
+  display: none;
+}
+
+.level-modal-content {
+   background: linear-gradient(180deg, #2a001f, #120009);
+  width: min(90%, 500px);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  color: #f5eaff;
+  border: 2px solid #ff2e88;
+  box-shadow: 0 0 20px rgba(255, 46, 136, 0.6);
+}
+
+.level-modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+   color: #ff6bd6;
+}
+
+.level-modal-content p {
+  margin-bottom: 20px;
+  line-height: 1.5;
+  color: #f5eaff;
+}
+
+.level-modal-content button {
+  background: linear-gradient(90deg, #ff2e88, #ff6bd6);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.level-modal-content button:hover {
+  box-shadow: 0 0 12px #ff6bd6;
+}
+
+/* =========================================
    RESPONSIVE CYBER MEMORY
    ========================================= */
 
@@ -403,25 +514,36 @@ body {
   }
 
   .sidebar {
-     order: -1;  
+    order: -1;
     margin-top: 24px;
     /* separación respecto al tablero */
+  }
+
+  #botones {
+    display: none;
+  }
+
+  .controls-bottom {
+    display: flex;
   }
 }
 
 /* Móviles: cartas más flexibles y layout compacto */
 @media (max-width: 670px) {
-    .columns-head {
+  .columns-head {
     grid-template-columns: 1fr 1fr;
     gap: 12px;
-    justify-items: center;   /* fuerza centrado de cada celda */
+    justify-items: center;
+    /* fuerza centrado de cada celda */
   }
-    .columns-head h2 {
+
+  .columns-head h2 {
     font-size: 16px;
     margin: 0;
   }
+
   .columns-head h2 {
-    font-size: 16px;     
+    font-size: 16px;
     letter-spacing: 0.5px;
     text-align: center;
   }
@@ -429,7 +551,8 @@ body {
   /* La sección de columnas pasa a ser 2 columnas (izq: conceptos, dcha: definiciones) */
   .columns {
     display: grid;
-    grid-template-columns: 1fr 1fr;  /* 2 columnas: A/B en la izq, C/D en la dcha */
+    grid-template-columns: 1fr 1fr;
+    /* 2 columnas: A/B en la izq, C/D en la dcha */
     gap: 16px;
     align-items: flex-start;
   }
@@ -443,14 +566,17 @@ body {
   #grid-habito,
   #grid-def {
     display: grid;
-    grid-template-columns: 1fr;  /* todas las cartas una debajo de otra */
-    gap: 12px;                   /* espacio entre cartas dentro de la columna */
+    grid-template-columns: 1fr;
+    /* todas las cartas una debajo de otra */
+    gap: 12px;
+    /* espacio entre cartas dentro de la columna */
     justify-items: center;
   }
 
   /* Cartas más pequeñas en móvil */
   :root {
-    --card-w: 110px;   /* ajústalo a tu gusto: 100–120px suele ir bien */
+    --card-w: 110px;
+    /* ajústalo a tu gusto: 100–120px suele ir bien */
     --card-gap: 12px;
   }
 
