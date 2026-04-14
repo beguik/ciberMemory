@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (btnNext) {
     btnNext.addEventListener("click", () => {
       goToNextLevel();
+      startGlobalTimer();
+updateGlobalTimer();
     });
   }
 });

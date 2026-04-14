@@ -30,14 +30,15 @@ document.addEventListener("DOMContentLoaded", () => {
     empezar.addEventListener("click", function () {
       localStorage.setItem("cyberMemoryScore", 0);
       window.location.href = "niveles/nivel1.html";
+      localStorage.setItem("gameStartTime", Date.now());
     })
   }
   document.querySelectorAll(".empezar").forEach(btn => {
     console.log(btn)
     btn.addEventListener("click", () => {
       localStorage.removeItem("cyberMemoryScore");
+      localStorage.setItem("gameStartTime", Date.now());
       window.location.href = "nivel1.html";
-      console.log(localStorage.getItem("cyberMemoryScore"))
     });
   });
 });
@@ -199,6 +200,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Render lateral izquierdo y derecho
   renderSide('grid-habito', habitoImgs, 'right');
   renderSide('grid-def', defImgs, 'left');
+
+    startGlobalTimer();
+  updateGlobalTimer();
 });
 
 function checkLevelComplete() {
@@ -264,4 +268,26 @@ function showLevelCompleteModal() {
     modal.classList.add("hidden");
     goToNextLevel();
   };
+}
+//Función para mostrar contador de tiempo
+function formatTime(ms) {
+  const totalSeconds = Math.floor(ms / 1000);
+  const minutes = String(Math.floor(totalSeconds / 60)).padStart(2, "0");
+  const seconds = String(totalSeconds % 60).padStart(2, "0");
+  return `${minutes}:${seconds}`;
+}
+
+function updateGlobalTimer() {
+  const timerEl = document.getElementById("timer");
+  if (!timerEl) return;
+
+  const startTime = localStorage.getItem("gameStartTime");
+  if (!startTime) return;
+
+  const elapsed = Date.now() - Number(startTime);
+  timerEl.textContent = formatTime(elapsed);
+}
+
+function startGlobalTimer() {
+  setInterval(updateGlobalTimer, 1000);
 }
