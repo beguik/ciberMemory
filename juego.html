@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cyber Memory — Juego</title>
+
+  <!-- CSS general del proyecto. Se conserva el estilo y el responsive original. -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div class="app">
+    <!-- ZONA DE TABLERO -->
+    <main class="board-area">
+
+      <!-- Cabecera de columnas -->
+      <header class="columns-head">
+        <h2>Definición</h2>
+        <div class="divider"></div>
+        <h2>Concepto</h2>
+      </header>
+
+      <!-- Columnas donde JavaScript dibuja las cartas del nivel actual -->
+      <section class="columns">
+        <div id="grid-def" class="grid"></div>
+        <div class="divider divider--full"></div>
+        <div id="grid-habito" class="grid"></div>
+      </section>
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h1 class="logo-sidebar">CYBER<br>MEMORY</h1>
+
+      <p class="level">Nivel <strong id="numero-nivel">1</strong></p>
+
+      <div class="time-box">
+        ⏱ <span id="timer">00:00</span>
+      </div>
+
+      <div class="attempts-box">
+        Combinaciones: <span id="attempts">0</span>/<span id="attempts-max">14</span>
+      </div>
+
+      <div class="progress">
+        <div class="bar" id="bar"></div>
+      </div>
+
+      <div class="score">Puntuación <span id="score">00</span>/480</div>
+      <br>
+
+      <div id="descripcion-nivel">
+        <p class="subtitle" id="titulo-nivel">Hábitos Digitales</p>
+        <p id="texto-nivel"></p>
+      </div>
+
+      <div id="botones">
+        <button class="btn empezar" id="btn-restart">Volver a empezar</button>
+        <button class="btn" id="btn-next">Avanzar nivel</button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Botones inferiores para la versión móvil. Se mantiene la estructura responsive original. -->
+  <div class="controls-bottom">
+    <button class="btn empezar" id="btn-restart-movil">Volver a empezar</button>
+    <button class="btn" id="btn-next-movil">Avanzar nivel</button>
+  </div>
+
+  <!-- Modal de nivel superado -->
+  <div id="level-modal" class="level-modal hidden">
+    <div class="level-modal-content">
+      <h2 id="level-modal-title">¡Nivel completado!</h2>
+      <p id="level-modal-text"></p>
+      <button id="level-modal-btn">Siguiente nivel</button>
+    </div>
+  </div>
+
+  <!-- Modal de derrota por agotar combinaciones -->
+  <div id="gameover-modal" class="level-modal hidden">
+    <div class="level-modal-content">
+      <h2 id="gameover-title">Has agotado tus combinaciones</h2>
+      <p id="gameover-text"></p>
+      <button id="gameover-btn">Volver al checkpoint</button>
+    </div>
+  </div>
+
+  <!-- Datos centralizados de todos los niveles -->
+  <script src="js/datos-niveles.js"></script>
+
+  <!-- Lógica general del juego -->
+  <script src="js/game.js"></script>
+</body>
+
+</html>

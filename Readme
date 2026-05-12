@@ -1,0 +1,125 @@
+*Cyber Memory – Steam Edition*
+
+Cyber Memory es un videojuego educativo tipo memory game desarrollado con HTML, CSS y JavaScript.
+El objetivo del juego es sensibilizar sobre los riesgos, hábitos y problemáticas relacionadas con el entorno digital mediante mecánicas de emparejamiento entre conceptos y definiciones.
+
+*Descripción del juego*
+
+El jugador debe relacionar correctamente conceptos del ámbito digital con sus definiciones correspondientes.
+Cada nivel introduce nuevas temáticas y aumenta progresivamente la dificultad.
+
+El juego incluye:
+
+- Sistema de niveles progresivos.
+- Puntuación global acumulativa.
+- Temporizador general de partida.
+- Sistema de checkpoints.
+- Modales de victoria y derrota.
+- Guardado automático mediante LocalStorage.
+- Diseño responsive compatible con distintas resoluciones.
+
+*Tecnologías utilizadas*
+HTML5
+CSS3
+JavaScript Vanilla
+
+-No se utilizan frameworks externos.
+
+*Estructura del proyecto*
+Cyber-Memory/
+│
+├── index.html
+├── juego.html
+├── final.html
+│
+├── css/
+│   ├── styles.css
+│   └── game.css
+│
+├── js/
+│   ├── game.js
+│   └── datos-niveles.js
+│
+├── assets/
+│   ├── img/
+│   ├── audio/
+│   └── iconos/
+│
+└── README.md
+
+*Funcionamiento general*
+
+index.html
+
+- Pantalla inicial del juego.
+
+juego.html
+
+- Pantalla principal donde se desarrolla la partida.
+
+final.html
+
+- Pantalla final mostrada tras completar todos los niveles.
+
+js/game.js
+
+- Archivo principal del juego. Controla:
+
+lógica del memory,
+puntuación,
+progreso,
+temporizador,
+checkpoints,
+modales,
+navegación entre niveles.
+
+js/datos-niveles.js
+
+- Contiene toda la información editable de los niveles:
+
+títulos,
+descripciones,
+conceptos,
+definiciones,
+configuración,
+mensajes finales.
+Guardado de progreso
+
+El juego utiliza localStorage para almacenar:
+puntuación global,
+nivel actual,
+nivel desbloqueado,
+tiempo total de partida.
+Sistema de niveles
+
+El juego funciona mediante un único archivo juego.html.
+
+Los niveles se cargan dinámicamente mediante:
+
+juego.html?nivel=1
+
+El acceso a niveles bloqueados está limitado mediante validación interna básica.
+
+Responsive Design
+
+**La interfaz está adaptada para:
+escritorio,
+tablets,
+resoluciones reducidas,
+pantallas horizontales.
+Objetivo educativo
+
+**Cyber Memory busca fomentar:
+pensamiento crítico digital,
+identificación de riesgos online,
+hábitos seguros en internet,
+alfabetización digital,
+sensibilización sobre problemáticas digitales.
+
+*Autoría*
+Proyecto desarrollado por Mujeres en Zona de Conflicto (MZC) en el marco del proyecto "Ludopedagogía, gamificación y artivismo para aumentar la sensibilización sobre las nuevas formas de violencia sexuales, explotación y trata en contextos prioritariamente masculinizados, jovenes y adolescentes" financiado por el Ministerio de Derechos Sociales, Consumo y Agenda 2030
+
+*Notas técnicas*
+Proyecto optimizado para empaquetado mediante Electron.
+Compatible con distribución en plataformas como Steam.
+Código comentado para facilitar mantenimiento y futuras modificaciones.
