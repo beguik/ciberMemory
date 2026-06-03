@@ -2,6 +2,54 @@
    CYBER MEMORY - GAME.JS
    ========================================================= */
 
+/* =========================================================
+CONTROL DE LA MÚSICA DEL INICIO
+========================================================= */
+const musicaMenu = document.getElementById("musicaMenu");
+const btnAudio = document.getElementById("btn-audio");
+
+let audioActivo = true;
+if (musicaMenu) {
+  musicaMenu.volume = 0.2;
+
+  setTimeout(() => {
+    musicaMenu.play()
+      .then(() => {
+        if (btnAudio) btnAudio.textContent = "🔊";
+      })
+      .catch(err => {
+        console.log("Autoplay bloqueado en nivel:", err);
+        if (btnAudio) btnAudio.textContent = "🔇";
+      });
+  }, 500);
+}
+
+if (btnAudio && musicaMenu) {
+
+  btnAudio.addEventListener("click", () => {
+
+    if (musicaMenu.paused) {
+      musicaMenu.muted = false;
+      musicaMenu.volume = 0.2;
+
+      musicaMenu.play()
+        .then(() => {
+          audioActivo = true;
+          btnAudio.textContent = "🔊";
+        })
+        .catch(err => {
+          console.log("No se pudo reproducir:", err);
+        });
+
+    } else {
+      musicaMenu.pause();
+      audioActivo = false;
+      btnAudio.textContent = "🔇";
+    }
+
+  });
+
+}
 
 /* =========================================================
    ESTADO GLOBAL DEL JUEGO

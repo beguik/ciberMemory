@@ -23,8 +23,8 @@
   --bg-left: #dd9b57;
   --bg-right: #2c2461;
   --title-fill: #FFFFFF;
-  --title-stroke:   #ff9a2f;
-  --text:  #EAEFFF;
+  --title-stroke: #ff9a2f;
+  --text: #EAEFFF;
   --muted: #C6CCD6;
 
   /* Paneles / acentos */
@@ -32,11 +32,11 @@
   --accent: #ff9a2f;
 
   /* Botones */
---btn-bg: linear-gradient(180deg, #2a2f7a, #4a3fb0);
---btn-text: #fff4ff;
---btn-radius: 18px;
---btn-border: #5b6cff;
---btn-glow: #5a4fff;
+  --btn-bg: linear-gradient(180deg, #2a2f7a, #4a3fb0);
+  --btn-text: #fff4ff;
+  --btn-radius: 18px;
+  --btn-border: #5b6cff;
+  --btn-glow: #5a4fff;
 
   /* Layout */
   --content-max: 860px;
@@ -86,19 +86,21 @@ body {
   transition: transform .15s ease, box-shadow .2s ease;
 
   box-shadow:
-    0 0 6px rgba(90,79,255,0.6),
-    0 0 16px rgba(90,79,255,0.5),
-    0 0 28px rgba(122,108,255,0.4);
+    0 0 6px rgba(90, 79, 255, 0.6),
+    0 0 16px rgba(90, 79, 255, 0.5),
+    0 0 28px rgba(122, 108, 255, 0.4);
 }
+
 .btn:hover {
   transform: translateY(-2px) scale(1.04);
 
- box-shadow:
+  box-shadow:
     0 0 10px var(--btn-glow),
     0 0 24px var(--btn-glow),
-    0 0 40px rgba(120,80,255,0.5),
-    0 10px 30px rgba(0,0,0,.25);
+    0 0 40px rgba(120, 80, 255, 0.5),
+    0 10px 30px rgba(0, 0, 0, .25);
 }
+
 .btn:active {
   transform: scale(0.96);
 }
@@ -111,6 +113,7 @@ body {
 /* =========================================================
    PORTADA (pantalla principal)
    ========================================================= */
+
 .principal {
   min-height: 100vh;
   display: grid;
@@ -132,12 +135,13 @@ body {
   color: var(--title-fill);
   -webkit-text-stroke: 1px var(--title-stroke);
 
- text-shadow:
+  text-shadow:
     0 0 4px #ffd089,
     0 0 10px #ffb347,
     0 0 20px #ff9a2f,
     0 0 40px rgba(255, 140, 0, 0.85);
 }
+
 .logo {
   animation: neonGlow 2.5s ease-in-out infinite alternate;
 }
@@ -149,12 +153,13 @@ body {
       0 0 10px #ffb347,
       0 0 20px #ff9a2f;
   }
+
   to {
     text-shadow:
       0 0 6px #ffe0a8,
       0 0 16px #ffb347,
       0 0 32px #ff9a2f,
-      0 0 60px rgba(255,140,0,0.9);
+      0 0 60px rgba(255, 140, 0, 0.9);
   }
 }
 
@@ -168,6 +173,31 @@ body {
 
 .lead p {
   margin: 0 0 18px;
+}
+
+/* Boton audio */
+.btn-audio {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  font-size: 14px;
+
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+
+  font-size: 24px;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.btn-audio:hover {
+  transform: scale(1.05);
 }
 
 /* =========================================================
@@ -234,7 +264,7 @@ body {
 /* Divisor vertical */
 .divider {
   width: var(--divider-w);
-   background: linear-gradient(180deg, #ffb347, #ff7a00);
+  background: linear-gradient(180deg, #ffb347, #ff7a00);
   border-radius: 2px;
   justify-self: center;
 }
@@ -356,8 +386,8 @@ body {
 .card.matched .card-inner {
   box-shadow:
     0 0 0 2px #ff9a2f,
-    0 0 10px rgba(255,140,0,0.7),
-    0 0 20px rgba(255,122,0,0.6);
+    0 0 10px rgba(255, 140, 0, 0.7),
+    0 0 20px rgba(255, 122, 0, 0.6);
 }
 
 .card.matched .card-button {
@@ -388,7 +418,7 @@ body {
     0 0 6px var(--title-fill),
     0 0 12px #ffb347,
     0 0 22px #ff9a2f,
-    0 0 40px rgba(255,140,0,0.75);
+    0 0 40px rgba(255, 140, 0, 0.75);
 
   line-height: .82;
   margin: 0 0 10px;
@@ -420,8 +450,8 @@ body {
   background: linear-gradient(90deg, #ffb347, #ff7a00);
 
   box-shadow:
-    0 0 8px rgba(255,140,0,0.7),
-    0 0 16px rgba(255,122,0,0.6);
+    0 0 8px rgba(255, 140, 0, 0.7),
+    0 0 16px rgba(255, 122, 0, 0.6);
 }
 
 .score {
