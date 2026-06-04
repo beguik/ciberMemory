@@ -230,7 +230,7 @@ function pintarInformacionNivel(nivel) {
  * Genera las rutas de imágenes del nivel y renderiza las dos columnas.
  */
 function pintarCartasNivel(nivel) {
-  const rutaNivel = `../assets/img/nivel${nivel.numero}/`;
+  const rutaNivel = `./assets/img/nivel${nivel.numero}/`;
 
   const nombresConceptos = nivel.nombresConceptos || nivel.nombresCartas;
   const nombresDefiniciones = nivel.nombresDefiniciones || nivel.nombresCartas;
