@@ -10,7 +10,12 @@ const btnAudio = document.getElementById("btn-audio");
 
 let audioActivo = true;
 if (musicaMenu) {
-  musicaMenu.volume = 0.2;
+    if (musicaMenu.src.includes("introcibermemory.mp3")) {
+    musicaMenu.volume = 0.2; // música inicio
+  } else {
+    musicaMenu.volume = 0.03; // música niveles
+  }
+
 
   setTimeout(() => {
     musicaMenu.play()
@@ -49,6 +54,24 @@ if (btnAudio && musicaMenu) {
 
   });
 
+}
+/* =========================================================
+DECLARACIÓN DE EFECTO DE SONIDO
+========================================================= */
+const flipSound = new Audio("./assets/audio/voltear.mp3");
+flipSound.volume = 0.40;
+
+const matchSound = new Audio("./assets/audio/correcto.mp3");
+matchSound.volume = 0.4;
+
+function playFlipSound() {
+  flipSound.currentTime = 0;
+  flipSound.play().catch(() => { });
+}
+
+function playMatchSound() {
+  matchSound.currentTime = 0;
+  matchSound.play().catch(() => { });
 }
 
 /* =========================================================
@@ -531,6 +554,7 @@ function gestionarClickCarta(carta) {
     if (lado !== "left") return;
 
     primeraCarta = carta;
+    playFlipSound();
     carta.classList.add("is-flipped");
     return;
   }
@@ -539,6 +563,7 @@ function gestionarClickCarta(carta) {
     if (lado !== "right") return;
 
     segundaCarta = carta;
+    playFlipSound();
     carta.classList.add("is-flipped");
     comprobarPareja();
   }
@@ -567,6 +592,7 @@ function comprobarPareja() {
 
   if (esParejaCorrecta) {
     setTimeout(() => {
+      playMatchSound();
       primeraCarta.classList.add("matched");
       segundaCarta.classList.add("matched");
 
