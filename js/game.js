@@ -9,36 +9,51 @@ const musicaMenu = document.getElementById("musicaMenu");
 const btnAudio = document.getElementById("btn-audio");
 
 let audioActivo = true;
-if (musicaMenu) {
-    if (musicaMenu.src.includes("introcibermemory.mp3")) {
-    musicaMenu.volume = 0.2; // música inicio
-  } else {
-    musicaMenu.volume = 0.03; // música niveles
+
+function obtenerVolumenMusica() {
+  if (!musicaMenu) return 0;
+
+  if (musicaMenu.src.includes("introcibermemory.mp3")) {
+    return 0.2; // música inicio
   }
 
+  return 0.03; // música niveles
+}
+
+function aplicarVolumenMusica() {
+  if (!musicaMenu) return;
+  musicaMenu.volume = obtenerVolumenMusica();
+}
+
+if (musicaMenu) {
+  aplicarVolumenMusica();
 
   setTimeout(() => {
+    aplicarVolumenMusica();
+
     musicaMenu.play()
       .then(() => {
+        aplicarVolumenMusica();
+        audioActivo = true;
         if (btnAudio) btnAudio.textContent = "🔊";
       })
       .catch(err => {
         console.log("Autoplay bloqueado en nivel:", err);
+        audioActivo = false;
         if (btnAudio) btnAudio.textContent = "🔇";
       });
   }, 500);
 }
 
 if (btnAudio && musicaMenu) {
-
   btnAudio.addEventListener("click", () => {
-
     if (musicaMenu.paused) {
       musicaMenu.muted = false;
-      musicaMenu.volume = 0.2;
+      aplicarVolumenMusica();
 
       musicaMenu.play()
         .then(() => {
+          aplicarVolumenMusica();
           audioActivo = true;
           btnAudio.textContent = "🔊";
         })
@@ -51,9 +66,7 @@ if (btnAudio && musicaMenu) {
       audioActivo = false;
       btnAudio.textContent = "🔇";
     }
-
   });
-
 }
 /* =========================================================
 DECLARACIÓN DE EFECTO DE SONIDO
@@ -316,6 +329,9 @@ function actualizarMarcador() {
     const porcentaje = (puntuacion / PUNTUACION_MAXIMA) * 100;
     barra.style.width = porcentaje + "%";
   }
+}
+function guardarPuntuacion() {
+  localStorage.setItem("cyberMemoryScore", puntuacion);
 }
 
 /**
@@ -680,6 +696,7 @@ function mostrarModalNivelCompletado() {
  * Avanza al siguiente nivel o muestra la pantalla final si ya terminó el nivel 8.
  */
 function avanzarAlSiguienteNivel() {
+  guardarPuntuacion();
   const ultimoNivel = DATOS_NIVELES.length;
 
   if (nivelActual >= ultimoNivel) {
